@@ -8,7 +8,7 @@ TOKEN = os.getenv('TOKEN')
 PORT = int(os.environ.get('PORT', '8443'))
 APP_NAME = os.getenv('APP_NAME')
 IDRDOL = float(os.getenv('IDRDOL'))
-IDRRUB = float(os.getenv('IDRRUB'))
+DOLRUB = float(os.getenv('DOLRUB'))
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -21,7 +21,7 @@ def exchange(update, context):
     chat = update.effective_chat
     value = float(update.message.text)
     dollars = round(float(value/IDRDOL), 1)
-    rubles = round(float(dollars*IDRRUB), 1)
+    rubles = round(float(dollars*DOLRUB), 1)
     message = f'{dollars}$\n{rubles}₽'
     context.bot.send_message(
         chat_id=chat.id,
