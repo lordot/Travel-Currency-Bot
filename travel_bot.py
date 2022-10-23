@@ -27,7 +27,7 @@ def exchange(update, context):
         chat_id=chat.id,
         text=message,
     )
-    logging.info(f'{value} - {message}')
+    logging.info(f'{value} - {dollars} - {rubles}')
 
 
 def main():
