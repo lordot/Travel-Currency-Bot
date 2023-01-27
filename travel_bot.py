@@ -4,12 +4,11 @@ import sys
 
 from telegram.ext import Updater, MessageHandler, Filters
 
-TOKEN = '5542961975:AAHHVziYdOyIU5giQmNEBGm4JYY0idksn1Y'
-PORT = 443
-# CERT = os.getenv('CERT')
-APP_DOMAIN = 'travel-bot.104.198.156.86.sslip.io'
-IDRDOL = 123
-DOLRUB = 123
+TOKEN = os.getenv('TOKEN')
+PORT = int(os.environ.get('PORT', '8443'))
+APP_DOMAIN = os.getenv('APP_NAME')
+IDRDOL = float(os.getenv('IDRDOL'))
+DOLRUB = float(os.getenv('DOLRUB'))
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -38,8 +37,7 @@ def main():
         listen="0.0.0.0",
         port=PORT,
         url_path=TOKEN,
-        webhook_url=f"https://{APP_DOMAIN}/{TOKEN}",
-        # cert=CERT
+        webhook_url=f"https://{APP_DOMAIN}/{TOKEN}"
     )
     updater.idle()
 
