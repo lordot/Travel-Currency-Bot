@@ -4,12 +4,12 @@ import sys
 
 from telegram.ext import Updater, MessageHandler, Filters
 
-TOKEN = os.getenv('TOKEN')
-PORT = int(os.environ.get('PORT', '8443'))
+TOKEN = '5542961975:AAHHVziYdOyIU5giQmNEBGm4JYY0idksn1Y'
+PORT = '443'
 # CERT = os.getenv('CERT')
-APP_DOMAIN = os.getenv('APP_NAME')
-IDRDOL = float(os.getenv('IDRDOL'))
-DOLRUB = float(os.getenv('DOLRUB'))
+APP_DOMAIN = 'travel-bot.104.198.156.86.sslip.io'
+IDRDOL = '123'
+DOLRUB = '123'
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
