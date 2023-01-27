@@ -5,7 +5,7 @@ import sys
 from telegram.ext import Updater, MessageHandler, Filters
 
 TOKEN = '5542961975:AAHHVziYdOyIU5giQmNEBGm4JYY0idksn1Y'
-PORT = '443'
+PORT = '5000'
 # CERT = os.getenv('CERT')
 APP_DOMAIN = 'travel-bot.104.198.156.86.sslip.io'
 IDRDOL = '123'
