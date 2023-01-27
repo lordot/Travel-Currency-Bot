@@ -6,7 +6,7 @@ from telegram.ext import Updater, MessageHandler, Filters
 
 TOKEN = os.getenv('TOKEN')
 PORT = int(os.environ.get('PORT', '8443'))
-APP_DOMAIN = os.getenv('APP_NAME')
+APP_DOMAIN = os.getenv('APP_DOMAIN')
 IDRDOL = float(os.getenv('IDRDOL'))
 DOLRUB = float(os.getenv('DOLRUB'))
 
@@ -44,3 +44,6 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+def psdfassd():
+    pass
