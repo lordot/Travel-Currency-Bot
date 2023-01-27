@@ -6,6 +6,7 @@ from telegram.ext import Updater, MessageHandler, Filters
 
 TOKEN = os.getenv('TOKEN')
 PORT = int(os.environ.get('PORT', '8443'))
+CERT = os.getenv('CERT')
 APP_DOMAIN = os.getenv('APP_NAME')
 IDRDOL = float(os.getenv('IDRDOL'))
 DOLRUB = float(os.getenv('DOLRUB'))
@@ -37,7 +38,8 @@ def main():
         listen="0.0.0.0",
         port=PORT,
         url_path=TOKEN,
-        webhook_url=f"https://{APP_DOMAIN}/{TOKEN}"
+        webhook_url=f"https://{APP_DOMAIN}/{TOKEN}",
+        cert=CERT
     )
     updater.idle()
 
