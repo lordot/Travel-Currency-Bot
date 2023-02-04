@@ -20,7 +20,10 @@ USD = session.query(Currency.rate).filter(Currency.name == 'USD').scalar()
 
 session.close()
 
-TOKEN = '5542961975:AAHHVziYdOyIU5giQmNEBGm4JYY0idksn1Y'
+TOKEN = os.getenv('TOKEN')
+PORT = int(os.environ.get('PORT', '8443'))
+APP_DOMAIN = os.getenv('APP_DOMAIN')
+
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -89,7 +92,12 @@ def main():
     updater.dispatcher.add_handler(CommandHandler('start', change_currency))
     updater.dispatcher.add_handler(MessageHandler(Filters.regex(r'^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$'), exchange))
     updater.dispatcher.add_handler(MessageHandler(Filters.text, test))
-    updater.start_polling(2)
+    updater.start_webhook(
+        listen="0.0.0.0",
+        port=PORT,
+        url_path=TOKEN,
+        webhook_url=f"https://{APP_DOMAIN}/{TOKEN}"
+    )
     updater.idle()
 
 
