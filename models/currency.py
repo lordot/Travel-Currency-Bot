@@ -10,11 +10,11 @@ class Currency(Base):
     __tablename__ = 'currencies'
 
     id = Column(Integer, primary_key=True)
-    name = Column(String, unique=True)
+    name = Column(String)
     rate = Column(Float)
     api_url = Column(String)
     updated = Column(DateTime, onupdate=datetime.now())
-    chat = relationship('Chat')
+    chats = relationship('Chat', backref='currency')
 
     def __init__(self, name: str, rate: float, api_url: str):
         self.name = name
