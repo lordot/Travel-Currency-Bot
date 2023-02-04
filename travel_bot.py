@@ -14,6 +14,10 @@ from models.chat import Chat
 
 session = Session()
 
+db_is_created = os.path.exists(DATABASE_NAME)
+if not db_is_created:
+    create_database()
+
 CUR_BASE = session.query(Currency.name).all()
 CUR_BASE.remove(('USD',))
 USD = session.query(Currency.rate).filter(Currency.name == 'USD').scalar()
@@ -85,9 +89,6 @@ def exchange(update, context):
 
 
 def main():
-    db_is_created = os.path.exists(DATABASE_NAME)
-    if not db_is_created:
-        create_database()
     updater = Updater(token=TOKEN, use_context=True)
     updater.dispatcher.add_handler(CommandHandler('start', change_currency))
     updater.dispatcher.add_handler(MessageHandler(Filters.regex(r'^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$'), exchange))
