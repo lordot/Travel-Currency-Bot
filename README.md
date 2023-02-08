@@ -10,7 +10,7 @@ Travel Currency Bot is a telegram bot that allows you to convert the currency of
 
 This repository can be run on the Heroku cloud platform or any other PaaS such as Dokku.
 
-For correct operation, you need to forward any port for Webhook telegrams. Requires an SSL certificate configured on the web server.
+For correct operation, you need to forward any port for Webhook telegram messages. Requires an SSL certificate configured on the web server.
 
 
 
